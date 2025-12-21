@@ -17,6 +17,7 @@
   "author": "A Dee H Dee Team",
   "license": "MIT",
   "dependencies": {
+    "google-sans": "github:agnel/google-sans",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
