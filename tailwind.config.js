@@ -7,8 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Google Sans', 'sans-serif'],
-        prompt: ['Prompt', 'sans-serif'],
+        sans: ['Noto Sans Thai', 'Google Sans', 'sans-serif'],
       },
     },
   },

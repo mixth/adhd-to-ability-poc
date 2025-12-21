@@ -115,12 +115,12 @@ const ADHDProposal = () => {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       className="min-h-screen relative overflow-hidden"
-      style={{ fontFamily: "'Prompt', sans-serif" }}
+      style={{ fontFamily: "'Noto Sans Thai', 'Google Sans', sans-serif" }}
     >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&display=swap');
 
-        /* Using Prompt font (Thai-compatible) via Google Fonts API instead of embedded base64 fonts */
+        /* Noto Sans Thai font (Thai-compatible) via Google Fonts API */
         
         
         .animated-bg {
