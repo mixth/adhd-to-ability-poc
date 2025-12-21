@@ -1,0 +1,30 @@
+{
+  "name": "adhd-to-ability-poc",
+  "version": "1.0.0",
+  "description": "ADHD to Ability - Young Policy Maker Project",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "adhd",
+    "policy",
+    "healthcare",
+    "react"
+  ],
+  "author": "A Dee H Dee Team",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.0.6"
+  }
+}
