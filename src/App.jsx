@@ -475,10 +475,10 @@ const ADHDProposal = () => {
                 className={`nav-item px-4 py-2 rounded-xl text-sm font-medium flex items-center gap-2 ${
                   activeSection === section.id ? 'active shadow-lg' : 'bg-white/50 hover:bg-white text-slate-600'
                 }`}
+                title={section.title}
               >
-                <span>{section.icon}</span>
+                <span className="text-lg md:text-base">{section.icon}</span>
                 <span className="hidden md:inline">{section.title}</span>
-                <span className="md:hidden">{section.id}</span>
               </button>
             ))}
           </div>
@@ -756,7 +756,7 @@ const ADHDProposal = () => {
               </div>
 
               {/* Flowchart Visual - Liquid Glass iOS 26 Style */}
-              <div className="relative rounded-3xl p-8 md:p-12 overflow-hidden min-h-[500px]">
+              <div className="relative rounded-3xl p-8 md:p-12 min-h-[500px]">
                 {/* Liquid Glass Background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-100/80 via-white/60 to-blue-50/80"></div>
                 
@@ -830,46 +830,72 @@ const ADHDProposal = () => {
                     </div>
                     <div className="lg:hidden text-4xl text-slate-300 animate-bounce">↓</div>
 
-                    {/* Policies - Glass Cards with popup above */}
-                    <div className="flex flex-col gap-4 relative">
-                      {/* Policy Popup - appears ABOVE the buttons */}
-                      {(showDetails === 'concerta' || showDetails === 'screening') && (
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 z-20 w-80 slide-up">
-                          <div className="liquid-glass-card p-4 shadow-xl border border-amber-200">
-                            <h4 className="font-bold text-slate-800 mb-3 text-sm">{policyDetails[showDetails].title}</h4>
-                            <ul className="space-y-2">
-                              {policyDetails[showDetails].points.map((point, i) => (
-                                <li key={i} className="flex items-start gap-2 text-xs text-slate-700">
-                                  <span className="w-1.5 h-1.5 bg-amber-400 rounded-full mt-1.5 flex-shrink-0"></span>
-                                  {point}
-                                </li>
-                              ))}
-                            </ul>
-                            <button 
-                              onClick={(e) => { e.stopPropagation(); setShowDetails(null); }}
-                              className="mt-3 text-xs text-amber-600 hover:text-amber-800 font-medium"
-                            >
-                              ✕ ปิด
-                            </button>
+                    {/* Policies - Glass Cards with individual popups */}
+                    <div className="flex flex-col gap-4">
+                      {/* Concerta Button with its own popup */}
+                      <div className="relative">
+                        {showDetails === 'concerta' && (
+                          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 z-20 w-80 slide-up">
+                            <div className="liquid-glass-card p-4 shadow-xl border border-amber-200">
+                              <h4 className="font-bold text-slate-800 mb-3 text-sm">{policyDetails.concerta.title}</h4>
+                              <ul className="space-y-2">
+                                {policyDetails.concerta.points.map((point, i) => (
+                                  <li key={i} className="flex items-start gap-2 text-xs text-slate-700">
+                                    <span className="w-1.5 h-1.5 bg-amber-400 rounded-full mt-1.5 flex-shrink-0"></span>
+                                    {point}
+                                  </li>
+                                ))}
+                              </ul>
+                              <button
+                                onClick={(e) => { e.stopPropagation(); setShowDetails(null); }}
+                                className="mt-3 text-xs text-amber-600 hover:text-amber-800 font-medium"
+                              >
+                                ✕ ปิด
+                              </button>
+                            </div>
                           </div>
+                        )}
+                        <div
+                          className={`liquid-glass-card-amber px-6 py-4 text-center hover:scale-105 transition-all duration-500 cursor-pointer ${showDetails === 'concerta' ? 'ring-4 ring-amber-300' : ''}`}
+                          onClick={() => setShowDetails(showDetails === 'concerta' ? null : 'concerta')}
+                        >
+                          <span className="text-3xl">💊</span>
+                          <div className="font-bold text-amber-900 mt-1">Concerta</div>
+                          <div className="text-xs text-amber-700">→ บัญชียาหลัก</div>
                         </div>
-                      )}
-                      
-                      <div 
-                        className={`liquid-glass-card-amber px-6 py-4 text-center hover:scale-105 transition-all duration-500 cursor-pointer ${showDetails === 'concerta' ? 'ring-4 ring-amber-300' : ''}`}
-                        onClick={() => setShowDetails(showDetails === 'concerta' ? null : 'concerta')}
-                      >
-                        <span className="text-3xl">💊</span>
-                        <div className="font-bold text-amber-900 mt-1">Concerta</div>
-                        <div className="text-xs text-amber-700">→ บัญชียาหลัก</div>
                       </div>
-                      <div 
-                        className={`liquid-glass-card-amber px-6 py-4 text-center hover:scale-105 transition-all duration-500 cursor-pointer ${showDetails === 'screening' ? 'ring-4 ring-amber-300' : ''}`}
-                        onClick={() => setShowDetails(showDetails === 'screening' ? null : 'screening')}
-                      >
-                        <span className="text-3xl">🔍</span>
-                        <div className="font-bold text-amber-900 mt-1">คัดกรอง</div>
-                        <div className="text-xs text-amber-700">เด็ก 6-12 ปี</div>
+
+                      {/* Screening Button with its own popup */}
+                      <div className="relative">
+                        {showDetails === 'screening' && (
+                          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 z-20 w-80 slide-up">
+                            <div className="liquid-glass-card p-4 shadow-xl border border-amber-200">
+                              <h4 className="font-bold text-slate-800 mb-3 text-sm">{policyDetails.screening.title}</h4>
+                              <ul className="space-y-2">
+                                {policyDetails.screening.points.map((point, i) => (
+                                  <li key={i} className="flex items-start gap-2 text-xs text-slate-700">
+                                    <span className="w-1.5 h-1.5 bg-amber-400 rounded-full mt-1.5 flex-shrink-0"></span>
+                                    {point}
+                                  </li>
+                                ))}
+                              </ul>
+                              <button
+                                onClick={(e) => { e.stopPropagation(); setShowDetails(null); }}
+                                className="mt-3 text-xs text-amber-600 hover:text-amber-800 font-medium"
+                              >
+                                ✕ ปิด
+                              </button>
+                            </div>
+                          </div>
+                        )}
+                        <div
+                          className={`liquid-glass-card-amber px-6 py-4 text-center hover:scale-105 transition-all duration-500 cursor-pointer ${showDetails === 'screening' ? 'ring-4 ring-amber-300' : ''}`}
+                          onClick={() => setShowDetails(showDetails === 'screening' ? null : 'screening')}
+                        >
+                          <span className="text-3xl">🔍</span>
+                          <div className="font-bold text-amber-900 mt-1">คัดกรอง</div>
+                          <div className="text-xs text-amber-700">เด็ก 6-12 ปี</div>
+                        </div>
                       </div>
                     </div>
 
@@ -1051,8 +1077,8 @@ const ADHDProposal = () => {
           <div className="glass rounded-2xl p-6 text-center">
             <p className="text-sm text-slate-500 mb-4">สนับสนุนโดย</p>
             <div className="flex justify-center items-center gap-8 flex-wrap mb-4">
-              <img src="/assets/logo1.jpg" alt="AIDS Access Foundation" className="h-16 object-contain" />
-              <img src="/assets/logo2.jpg" alt="สสส." className="h-16 object-contain" />
+              <img src={`${import.meta.env.BASE_URL}assets/logo1.jpg`} alt="AIDS Access Foundation" className="h-16 object-contain" />
+              <img src={`${import.meta.env.BASE_URL}assets/logo2.jpg`} alt="สสส." className="h-16 object-contain" />
               <div className="h-16 px-4 flex items-center justify-center border-2 border-dashed border-slate-300 rounded-lg text-slate-400 text-sm">
                 YPM Logo
               </div>
