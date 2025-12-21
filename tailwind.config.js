@@ -8,7 +8,6 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Google Sans', 'sans-serif'],
-        prompt: ['Prompt', 'sans-serif'],
       },
     },
   },
