@@ -115,10 +115,10 @@ const ADHDProposal = () => {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       className="min-h-screen relative overflow-hidden"
-      style={{ fontFamily: "'Noto Sans Thai', 'Google Sans', sans-serif" }}
+      style={{ fontFamily: "'Google Sans', sans-serif" }}
     >
       <style>{`
-        /* Noto Sans Thai is loaded via index.html */
+        /* Google Sans is loaded via index.html */
         
         
         .animated-bg {
