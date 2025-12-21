@@ -446,7 +446,7 @@ const ADHDProposal = () => {
         
         {/* Header */}
         <header className={`text-center mb-10 transition-all duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
-          <div className="inline-block mb-4 slide-up">
+          <div className="inline-block mb-6 slide-up">
             <span className="px-5 py-2 bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-full text-sm font-bold shadow-lg shadow-teal-200">
               ✨ Young Policy Maker #2 ✨
             </span>
