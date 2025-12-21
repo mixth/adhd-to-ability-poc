@@ -1073,24 +1073,24 @@ const ADHDProposal = () => {
         {/* Pagination */}
         <div className="mt-8 slide-up stagger-4">
           <div className="glass rounded-2xl p-4">
-            <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center justify-between gap-3">
               {/* Previous Button */}
               <button
                 onClick={() => setActiveSection(prev => Math.max(1, prev - 1))}
                 disabled={activeSection === 1}
-                className={`nav-item px-4 py-3 rounded-xl text-sm font-medium flex items-center gap-2 transition-all min-w-[140px] sm:min-w-[180px] ${
+                className={`nav-item px-4 py-4 rounded-xl text-sm font-medium flex items-center gap-2 transition-all flex-1 min-h-[56px] ${
                   activeSection === 1
                     ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
-                    : 'bg-white/50 hover:bg-white text-slate-600 hover:shadow-lg'
+                    : 'bg-white/50 hover:bg-white text-slate-600 hover:shadow-lg active:scale-95'
                 }`}
               >
-                <span className="text-lg">←</span>
+                <span className="text-xl">←</span>
                 {activeSection > 1 ? (
-                  <div className="flex flex-col items-start">
+                  <div className="flex flex-col items-start min-w-0">
                     <span className="text-xs text-slate-400">ก่อนหน้า</span>
-                    <span className="flex items-center gap-1">
-                      <span>{sections[activeSection - 2]?.icon}</span>
-                      <span className="hidden sm:inline truncate">{sections[activeSection - 2]?.title}</span>
+                    <span className="flex items-center gap-1.5">
+                      <span className="text-base">{sections[activeSection - 2]?.icon}</span>
+                      <span className="truncate text-sm">{sections[activeSection - 2]?.title}</span>
                     </span>
                   </div>
                 ) : (
@@ -1098,58 +1098,29 @@ const ADHDProposal = () => {
                 )}
               </button>
 
-              {/* Center - Page Indicator and Dots */}
-              <div className="flex flex-col items-center gap-2">
-                {/* Current Section Display */}
-                <div className="px-4 py-2 bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-xl text-sm font-bold shadow-lg min-w-[70px] text-center">
-                  {activeSection} / {sections.length}
-                </div>
-                {/* Page Indicator Dots */}
-                <div className="flex items-center gap-2">
-                  {sections.map((section) => (
-                    <button
-                      key={section.id}
-                      onClick={() => setActiveSection(section.id)}
-                      className={`w-3 h-3 rounded-full transition-all ${
-                        activeSection === section.id
-                          ? 'bg-gradient-to-r from-teal-500 to-cyan-500 scale-125 shadow-lg'
-                          : 'bg-slate-300 hover:bg-slate-400'
-                      }`}
-                      title={section.title}
-                    />
-                  ))}
-                </div>
-              </div>
-
               {/* Next Button */}
               <button
                 onClick={() => setActiveSection(prev => Math.min(sections.length, prev + 1))}
                 disabled={activeSection === sections.length}
-                className={`nav-item px-4 py-3 rounded-xl text-sm font-medium flex items-center gap-2 transition-all min-w-[140px] sm:min-w-[180px] justify-end ${
+                className={`nav-item px-4 py-4 rounded-xl text-sm font-medium flex items-center gap-2 transition-all flex-1 min-h-[56px] justify-end ${
                   activeSection === sections.length
                     ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
-                    : 'bg-white/50 hover:bg-white text-slate-600 hover:shadow-lg'
+                    : 'bg-white/50 hover:bg-white text-slate-600 hover:shadow-lg active:scale-95'
                 }`}
               >
                 {activeSection < sections.length ? (
-                  <div className="flex flex-col items-end">
+                  <div className="flex flex-col items-end min-w-0">
                     <span className="text-xs text-slate-400">ถัดไป</span>
-                    <span className="flex items-center gap-1">
-                      <span className="hidden sm:inline truncate">{sections[activeSection]?.title}</span>
-                      <span>{sections[activeSection]?.icon}</span>
+                    <span className="flex items-center gap-1.5">
+                      <span className="truncate text-sm">{sections[activeSection]?.title}</span>
+                      <span className="text-base">{sections[activeSection]?.icon}</span>
                     </span>
                   </div>
                 ) : (
                   <span className="text-slate-400">ถัดไป</span>
                 )}
-                <span className="text-lg">→</span>
+                <span className="text-xl">→</span>
               </button>
-            </div>
-
-            {/* Current Section Title */}
-            <div className="text-center mt-3 text-slate-600 text-sm">
-              <span className="font-medium">{sections.find(s => s.id === activeSection)?.icon}</span>
-              <span className="ml-2">{sections.find(s => s.id === activeSection)?.title}</span>
             </div>
           </div>
         </div>
