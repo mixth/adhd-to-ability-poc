@@ -111,7 +111,7 @@ const ADHDProposal = () => {
   };
 
   return (
-    <div 
+    <div
       ref={containerRef}
       onMouseMove={handleMouseMove}
       className="min-h-screen relative overflow-hidden"
@@ -121,20 +121,20 @@ const ADHDProposal = () => {
         @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
 
         /* Google Sans font via Google Fonts API */
-        
-        
+
+
         .animated-bg {
           background: linear-gradient(-45deg, #f0fdfa, #fef1f2, #fefce8, #ede9fe, #f0f9ff);
           background-size: 400% 400%;
           animation: gradientShift 15s ease infinite;
         }
-        
+
         @keyframes gradientShift {
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
           100% { background-position: 0% 50%; }
         }
-        
+
         .particle {
           position: absolute;
           border-radius: 50%;
@@ -144,27 +144,27 @@ const ADHDProposal = () => {
           animation: floatParticle var(--duration) ease-in-out infinite;
           animation-delay: var(--delay);
         }
-        
+
         @keyframes floatParticle {
           0%, 100% { transform: translateY(0) translateX(0) scale(1); opacity: 0.3; }
           50% { transform: translateY(-40px) translateX(-15px) scale(1.1); opacity: 0.5; }
         }
-        
+
         .glass {
           background: rgba(255, 255, 255, 0.85);
           backdrop-filter: blur(20px);
           border: 1px solid rgba(255, 255, 255, 0.9);
         }
-        
+
         .card-3d {
           transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
           transform-style: preserve-3d;
         }
-        
+
         .card-3d:hover {
           transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-6px) scale(1.01);
         }
-        
+
         .gradient-text {
           background: linear-gradient(135deg, #14b8a6, #0891b2, #6366f1);
           background-size: 200% 200%;
@@ -173,55 +173,55 @@ const ADHDProposal = () => {
           background-clip: text;
           animation: textGradient 4s linear infinite;
         }
-        
+
         @keyframes textGradient {
           0% { background-position: 0% 50%; }
           100% { background-position: 200% 50%; }
         }
-        
+
         .slide-up {
           opacity: 0;
           transform: translateY(40px);
           animation: slideUp 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
-        
+
         @keyframes slideUp {
           to { opacity: 1; transform: translateY(0); }
         }
-        
+
         .stagger-1 { animation-delay: 0.1s; }
         .stagger-2 { animation-delay: 0.2s; }
         .stagger-3 { animation-delay: 0.3s; }
         .stagger-4 { animation-delay: 0.4s; }
         .stagger-5 { animation-delay: 0.5s; }
-        
+
         .arrow-flow {
           animation: arrowPulse 1.5s ease-in-out infinite;
         }
-        
+
         @keyframes arrowPulse {
           0%, 100% { transform: translateX(0); opacity: 1; }
           50% { transform: translateX(6px); opacity: 0.6; }
         }
-        
+
         .float {
           animation: float 4s ease-in-out infinite;
         }
-        
+
         @keyframes float {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-8px); }
         }
-        
+
         .pulse-glow {
           animation: pulseGlow 2s ease-in-out infinite;
         }
-        
+
         @keyframes pulseGlow {
           0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.3); }
           50% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.5); }
         }
-        
+
         /* Liquid Glass iOS 26 Styles */
         .liquid-glass-card {
           background: rgba(255, 255, 255, 0.7);
@@ -229,57 +229,57 @@ const ADHDProposal = () => {
           -webkit-backdrop-filter: blur(20px);
           border-radius: 24px;
           border: 1px solid rgba(255, 255, 255, 0.8);
-          box-shadow: 
+          box-shadow:
             0 8px 32px rgba(0, 0, 0, 0.1),
             inset 0 1px 0 rgba(255, 255, 255, 0.8),
             inset 0 -1px 0 rgba(0, 0, 0, 0.05);
         }
-        
+
         .liquid-glass-card-rose {
           background: linear-gradient(135deg, rgba(244, 63, 94, 0.8), rgba(236, 72, 153, 0.8));
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
           border-radius: 20px;
           border: 1px solid rgba(255, 255, 255, 0.3);
-          box-shadow: 
+          box-shadow:
             0 8px 32px rgba(244, 63, 94, 0.3),
             inset 0 1px 0 rgba(255, 255, 255, 0.4);
         }
-        
+
         .liquid-glass-card-teal {
           background: linear-gradient(135deg, rgba(20, 184, 166, 0.8), rgba(16, 185, 129, 0.8));
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
           border-radius: 20px;
           border: 1px solid rgba(255, 255, 255, 0.3);
-          box-shadow: 
+          box-shadow:
             0 8px 32px rgba(20, 184, 166, 0.3),
             inset 0 1px 0 rgba(255, 255, 255, 0.4);
         }
-        
+
         .liquid-glass-card-amber {
           background: linear-gradient(135deg, rgba(251, 191, 36, 0.6), rgba(245, 158, 11, 0.6));
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
           border-radius: 20px;
           border: 1px solid rgba(255, 255, 255, 0.5);
-          box-shadow: 
+          box-shadow:
             0 8px 32px rgba(245, 158, 11, 0.2),
             inset 0 1px 0 rgba(255, 255, 255, 0.6);
         }
-        
+
         .liquid-glass-card-emerald {
           background: linear-gradient(135deg, rgba(16, 185, 129, 0.9), rgba(5, 150, 105, 0.9));
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
           border-radius: 24px;
           border: 1px solid rgba(255, 255, 255, 0.3);
-          box-shadow: 
+          box-shadow:
             0 8px 32px rgba(16, 185, 129, 0.4),
             0 0 60px rgba(16, 185, 129, 0.2),
             inset 0 1px 0 rgba(255, 255, 255, 0.4);
         }
-        
+
         /* Blob Animations */
         @keyframes blob {
           0%, 100% { transform: translate(0, 0) scale(1); }
@@ -287,69 +287,69 @@ const ADHDProposal = () => {
           50% { transform: translate(-20px, 20px) scale(0.9); }
           75% { transform: translate(30px, 10px) scale(1.05); }
         }
-        
+
         @keyframes blob-reverse {
           0%, 100% { transform: translate(0, 0) scale(1); }
           25% { transform: translate(-30px, 20px) scale(0.95); }
           50% { transform: translate(20px, -20px) scale(1.1); }
           75% { transform: translate(-10px, -30px) scale(1); }
         }
-        
+
         @keyframes blob-slow {
           0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
           50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.5; }
         }
-        
+
         .animate-blob {
           animation: blob 8s ease-in-out infinite;
         }
-        
+
         .animate-blob-reverse {
           animation: blob-reverse 10s ease-in-out infinite;
         }
-        
+
         .animate-blob-slow {
           animation: blob-slow 12s ease-in-out infinite;
         }
-        
+
         .animation-delay-1000 { animation-delay: 1s; }
         .animation-delay-2000 { animation-delay: 2s; }
         .animation-delay-3000 { animation-delay: 3s; }
         .animation-delay-4000 { animation-delay: 4s; }
-        
+
         .animate-float {
           animation: float 6s ease-in-out infinite;
         }
-        
+
         .animate-arrow-flow {
           animation: arrowFlow 1.5s ease-in-out infinite;
         }
-        
+
         @keyframes arrowFlow {
           0%, 100% { opacity: 0.5; stroke-dashoffset: 0; }
           50% { opacity: 1; stroke-dashoffset: 10; }
         }
-        
+
         .animate-pulse-glow {
           animation: pulseGlowStrong 2s ease-in-out infinite;
         }
-        
+
         @keyframes pulseGlowStrong {
-          0%, 100% { 
+          0%, 100% {
             box-shadow: 0 8px 32px rgba(16, 185, 129, 0.4), 0 0 60px rgba(16, 185, 129, 0.2);
             transform: scale(1);
           }
-          50% { 
+          50% {
             box-shadow: 0 8px 48px rgba(16, 185, 129, 0.6), 0 0 80px rgba(16, 185, 129, 0.4);
             transform: scale(1.02);
           }
         }
-        
+
         .shine {
           position: relative;
           overflow: hidden;
         }
-        
+
         .shine::after {
           content: '';
           position: absolute;
@@ -360,58 +360,58 @@ const ADHDProposal = () => {
           background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.6) 50%, transparent 60%);
           transform: translateX(-100%);
         }
-        
+
         .shine:hover::after {
           animation: shine 0.7s ease-out;
         }
-        
+
         @keyframes shine {
           to { transform: translateX(100%); }
         }
-        
+
         .feedback-dash {
           stroke-dasharray: 8 5;
           animation: dashFlow 1.5s linear infinite;
         }
-        
+
         @keyframes dashFlow {
           to { stroke-dashoffset: -13; }
         }
-        
+
         .nav-item {
           transition: all 0.3s ease;
         }
-        
+
         .nav-item.active {
           background: linear-gradient(135deg, #14b8a6, #0891b2);
           color: white;
           transform: scale(1.05);
         }
-        
+
         .expand-content {
           max-height: 0;
           overflow: hidden;
           transition: max-height 0.5s ease-out, opacity 0.3s ease;
           opacity: 0;
         }
-        
+
         .expand-content.open {
           max-height: 5000px;
           opacity: 1;
         }
-        
+
         .section-card {
           transition: all 0.4s ease;
         }
-        
+
         .section-card:hover {
           box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
         }
-        
+
         .icon-bounce:hover .icon {
           animation: iconBounce 0.5s ease;
         }
-        
+
         @keyframes iconBounce {
           0%, 100% { transform: scale(1); }
           50% { transform: scale(1.2) rotate(-5deg); }
@@ -420,7 +420,7 @@ const ADHDProposal = () => {
 
       {/* Background */}
       <div className="animated-bg fixed inset-0 -z-10" />
-      <div 
+      <div
         className="fixed inset-0 -z-5 pointer-events-none"
         style={{
           background: `radial-gradient(600px circle at ${mousePos.x}% ${mousePos.y}%, rgba(20, 184, 166, 0.08), transparent 40%)`
@@ -443,12 +443,12 @@ const ADHDProposal = () => {
       ))}
 
       <div className="relative z-10 p-4 md:p-8 max-w-7xl mx-auto">
-        
+
         {/* Header */}
         <header className={`text-center mb-10 transition-all duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
           <div className="inline-block mb-4 slide-up">
             <span className="px-5 py-2 bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-full text-sm font-bold shadow-lg shadow-teal-200">
-              ✨ Young Policy Maker #2 ✨
+              ✨ Young Policy Makers #2 ✨
             </span>
           </div>
           <h1 className="text-3xl md:text-5xl font-bold gradient-text mb-3 slide-up stagger-1">
@@ -509,7 +509,7 @@ const ADHDProposal = () => {
               </h3>
               <div className="flex flex-wrap justify-center gap-3">
                 {['ตรวจเร็ว', 'รู้ไว', 'ไร้ตรา', 'เด็กกล้าโต'].map((item, i) => (
-                  <span 
+                  <span
                     key={i}
                     className="px-4 py-2 bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-full font-bold shadow-lg float"
                     style={{ animationDelay: `${i * 0.2}s` }}
@@ -530,16 +530,16 @@ const ADHDProposal = () => {
                 <span className="text-4xl">📖</span>
                 <h2 className="text-2xl font-bold text-slate-800">ความเป็นมา หลักการและเหตุผล</h2>
               </div>
-              
+
               {/* Abstract */}
               <div className="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-2xl p-6 mb-6 border-l-4 border-teal-500">
                 <h3 className="font-bold text-teal-800 mb-4 flex items-center gap-2">
                   <span>📝</span> บทคัดย่อ
                 </h3>
                 <p className="text-slate-700 leading-relaxed text-sm md:text-base">
-                  โรคสมาธิสั้น (ADHD) พบได้ <strong className="text-teal-700">ร้อยละ 8.1</strong> ในเด็กนักเรียนประถมของไทย 
-                  หรือประมาณ <strong className="text-teal-700">1 ล้านคน</strong> แต่เด็กจำนวนมากไม่ได้รับการวินิจฉัย 
-                  เนื่องจากขาดระบบคัดกรองเชิงรุก ยา Concerta ที่เหมาะกับเด็กวัยเรียนยังไม่อยู่ในบัญชียาหลัก 
+                  โรคสมาธิสั้น (ADHD) พบได้ <strong className="text-teal-700">ร้อยละ 8.1</strong> ในเด็กนักเรียนประถมของไทย
+                  หรือประมาณ <strong className="text-teal-700">1 ล้านคน</strong> แต่เด็กจำนวนมากไม่ได้รับการวินิจฉัย
+                  เนื่องจากขาดระบบคัดกรองเชิงรุก ยา Concerta ที่เหมาะกับเด็กวัยเรียนยังไม่อยู่ในบัญชียาหลัก
                   ทำให้ครอบครัวต้องจ่ายเอง <strong className="text-rose-600">3,500-8,000 บาท/เดือน</strong>
                 </p>
                 <div className="grid md:grid-cols-3 gap-4 mt-6">
@@ -570,7 +570,7 @@ const ADHDProposal = () => {
               {/* Full Background Content */}
               <div className={`expand-content ${showFullBackground ? 'open' : ''}`}>
                 <div className="mt-6 space-y-6">
-                  
+
                   {/* โรคสมาธิสั้น */}
                   <div className="bg-rose-50 rounded-2xl p-6 border-l-4 border-rose-400">
                     <h4 className="font-bold text-rose-800 mb-3 flex items-center gap-2">
@@ -594,7 +594,7 @@ const ADHDProposal = () => {
                       <span>💊</span> วิธีการรักษา
                     </h4>
                     <p className="text-slate-700 text-sm leading-relaxed mb-4">
-                      หลักฐานยืนยันว่า ADHD จำเป็นต้องรักษาด้วยยา (pharmacotherapy) เป็นหลัก 
+                      หลักฐานยืนยันว่า ADHD จำเป็นต้องรักษาด้วยยา (pharmacotherapy) เป็นหลัก
                       โดย methylphenidate เป็นยาที่มีประสิทธิภาพสูงสุดสำหรับเด็กและวัยรุ่น
                     </p>
                     <div className="bg-white/80 rounded-xl p-4">
@@ -603,23 +603,23 @@ const ADHDProposal = () => {
                         <div className="font-medium text-slate-600">ประเด็น</div>
                         <div className="font-medium text-teal-700">Concerta</div>
                         <div className="font-medium text-rose-700">Ritalin</div>
-                        
+
                         <div>ระยะออกฤทธิ์</div>
                         <div className="text-teal-600">10-12 ชม.</div>
                         <div className="text-rose-600">3-4 ชม.</div>
-                        
+
                         <div>รับประทาน</div>
                         <div className="text-teal-600">1 ครั้ง/วัน</div>
                         <div className="text-rose-600">2-3 ครั้ง/วัน</div>
-                        
+
                         <div>ให้ยาที่โรงเรียน</div>
                         <div className="text-teal-600">ไม่จำเป็น ✓</div>
                         <div className="text-rose-600">จำเป็น</div>
-                        
+
                         <div>บัญชียาหลัก</div>
                         <div className="text-rose-600">ไม่อยู่ ✗</div>
                         <div className="text-teal-600">อยู่ ✓</div>
-                        
+
                         <div>ค่าใช้จ่าย/เดือน</div>
                         <div className="text-rose-600">3,500-8,000฿</div>
                         <div className="text-teal-600">เบิกได้</div>
@@ -682,7 +682,7 @@ const ADHDProposal = () => {
                     { icon: '💊', text: 'ความไม่เท่าเทียมในการเข้าถึงยาที่มีประสิทธิภาพ', color: 'amber' },
                     { icon: '🏷️', text: 'ตราบาปทางสังคมที่ทำให้ผู้ปกครองปฏิเสธการรักษา', color: 'purple' }
                   ].map((item, i) => (
-                    <div 
+                    <div
                       key={i}
                       className={`bg-${item.color}-50 rounded-xl p-4 border-l-4 border-${item.color}-400 card-3d`}
                     >
@@ -697,9 +697,9 @@ const ADHDProposal = () => {
               <div className="mb-8">
                 <h3 className="font-bold text-slate-700 mb-4">กลยุทธ์ 2 เสาหลัก</h3>
                 <div className="grid lg:grid-cols-2 gap-6">
-                  
+
                   {/* Pillar 1 */}
-                  <div 
+                  <div
                     className={`bg-gradient-to-br from-rose-50 to-pink-50 rounded-2xl p-6 cursor-pointer card-3d border-2 ${
                       activeFramework === 'pillar1' ? 'border-rose-400 ring-4 ring-rose-200' : 'border-rose-200'
                     }`}
@@ -729,7 +729,7 @@ const ADHDProposal = () => {
                   </div>
 
                   {/* Pillar 2 */}
-                  <div 
+                  <div
                     className={`bg-gradient-to-br from-teal-50 to-emerald-50 rounded-2xl p-6 cursor-pointer card-3d border-2 ${
                       activeFramework === 'pillar2' ? 'border-teal-400 ring-4 ring-teal-200' : 'border-teal-200'
                     }`}
@@ -759,7 +759,7 @@ const ADHDProposal = () => {
               <div className="relative rounded-3xl p-8 md:p-12 overflow-hidden min-h-[500px]">
                 {/* Liquid Glass Background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-100/80 via-white/60 to-blue-50/80"></div>
-                
+
                 {/* Animated Liquid Blobs */}
                 <div className="absolute inset-0 overflow-hidden">
                   {/* Large blobs */}
@@ -767,25 +767,25 @@ const ADHDProposal = () => {
                   <div className="absolute top-1/4 -right-20 w-96 h-96 bg-gradient-to-br from-teal-300/40 to-cyan-400/30 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
                   <div className="absolute -bottom-20 left-1/4 w-80 h-80 bg-gradient-to-br from-amber-300/40 to-yellow-400/30 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-emerald-300/30 to-teal-400/20 rounded-full blur-3xl animate-blob-slow"></div>
-                  
+
                   {/* Medium blobs */}
                   <div className="absolute top-10 left-1/3 w-48 h-48 bg-gradient-to-br from-violet-300/50 to-purple-400/30 rounded-full blur-2xl animate-blob-reverse"></div>
                   <div className="absolute bottom-20 right-1/4 w-56 h-56 bg-gradient-to-br from-blue-300/40 to-indigo-400/30 rounded-full blur-2xl animate-blob-reverse animation-delay-3000"></div>
                   <div className="absolute top-1/3 right-1/3 w-40 h-40 bg-gradient-to-br from-pink-300/50 to-rose-400/30 rounded-full blur-2xl animate-blob animation-delay-1000"></div>
-                  
+
                   {/* Small accent blobs */}
                   <div className="absolute top-20 right-20 w-24 h-24 bg-gradient-to-br from-cyan-400/60 to-teal-500/40 rounded-full blur-xl animate-float"></div>
                   <div className="absolute bottom-32 left-20 w-20 h-20 bg-gradient-to-br from-amber-400/60 to-orange-500/40 rounded-full blur-xl animate-float animation-delay-2000"></div>
                   <div className="absolute top-1/2 right-10 w-16 h-16 bg-gradient-to-br from-rose-400/60 to-pink-500/40 rounded-full blur-xl animate-float animation-delay-4000"></div>
                 </div>
-                
+
                 {/* Glass overlay */}
                 <div className="absolute inset-0 backdrop-blur-sm bg-white/10"></div>
-                
+
                 {/* Content */}
                 <div className="relative z-10">
                   <h3 className="font-bold text-2xl text-slate-800 mb-10 text-center drop-shadow-sm">แผนผังการขับเคลื่อน</h3>
-                  
+
                   <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-8 justify-center">
                     {/* Problem - Glass Card */}
                     <div className="liquid-glass-card p-6 text-center min-w-[140px] hover:scale-105 transition-all duration-500">
@@ -845,7 +845,7 @@ const ADHDProposal = () => {
                                 </li>
                               ))}
                             </ul>
-                            <button 
+                            <button
                               onClick={(e) => { e.stopPropagation(); setShowDetails(null); }}
                               className="mt-3 text-xs text-amber-600 hover:text-amber-800 font-medium"
                             >
@@ -854,8 +854,8 @@ const ADHDProposal = () => {
                           </div>
                         </div>
                       )}
-                      
-                      <div 
+
+                      <div
                         className={`liquid-glass-card-amber px-6 py-4 text-center hover:scale-105 transition-all duration-500 cursor-pointer ${showDetails === 'concerta' ? 'ring-4 ring-amber-300' : ''}`}
                         onClick={() => setShowDetails(showDetails === 'concerta' ? null : 'concerta')}
                       >
@@ -863,7 +863,7 @@ const ADHDProposal = () => {
                         <div className="font-bold text-amber-900 mt-1">Concerta</div>
                         <div className="text-xs text-amber-700">→ บัญชียาหลัก</div>
                       </div>
-                      <div 
+                      <div
                         className={`liquid-glass-card-amber px-6 py-4 text-center hover:scale-105 transition-all duration-500 cursor-pointer ${showDetails === 'screening' ? 'ring-4 ring-amber-300' : ''}`}
                         onClick={() => setShowDetails(showDetails === 'screening' ? null : 'screening')}
                       >
@@ -902,7 +902,7 @@ const ADHDProposal = () => {
                                 </li>
                               ))}
                             </ul>
-                            <button 
+                            <button
                               onClick={(e) => { e.stopPropagation(); setShowDetails(null); }}
                               className="mt-4 text-sm text-emerald-600 hover:text-emerald-800 font-medium"
                             >
@@ -911,8 +911,8 @@ const ADHDProposal = () => {
                           </div>
                         </div>
                       )}
-                      
-                      <div 
+
+                      <div
                         className={`liquid-glass-card-emerald p-6 text-center min-w-[180px] hover:scale-110 transition-all duration-500 animate-pulse-glow cursor-pointer ${showDetails === 'benefits' ? 'ring-4 ring-emerald-300' : ''}`}
                         onClick={() => setShowDetails(showDetails === 'benefits' ? null : 'benefits')}
                       >
@@ -962,13 +962,13 @@ const ADHDProposal = () => {
                 <span className="text-4xl">🎯</span>
                 <h2 className="text-2xl font-bold text-slate-800">เป้าประสงค์ เป้าหมายระยะยาว</h2>
               </div>
-              
+
               <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-6 border-2 border-emerald-200 mb-6">
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  เด็กไทยที่มีภาวะสมาธิสั้น (ADHD) <strong className="text-emerald-700">ทุกคน</strong> ได้รับการคัดกรอง วินิจฉัย 
-                  และเข้าถึงการรักษาที่มีประสิทธิภาพอย่างเท่าเทียม 
-                  โดยปราศจากอุปสรรคด้านตราบาปทางสังคมและข้อจำกัดด้านค่าใช้จ่าย 
-                  ส่งผลให้เด็ก ADHD สามารถพัฒนาศักยภาพได้เต็มที่ มีคุณภาพชีวิตที่ดี 
+                  เด็กไทยที่มีภาวะสมาธิสั้น (ADHD) <strong className="text-emerald-700">ทุกคน</strong> ได้รับการคัดกรอง วินิจฉัย
+                  และเข้าถึงการรักษาที่มีประสิทธิภาพอย่างเท่าเทียม
+                  โดยปราศจากอุปสรรคด้านตราบาปทางสังคมและข้อจำกัดด้านค่าใช้จ่าย
+                  ส่งผลให้เด็ก ADHD สามารถพัฒนาศักยภาพได้เต็มที่ มีคุณภาพชีวิตที่ดี
                   และเติบโตเป็นพลเมืองที่มีส่วนร่วมในการพัฒนาประเทศ
                 </p>
               </div>
@@ -997,7 +997,7 @@ const ADHDProposal = () => {
 
               <div className="space-y-6">
                 {objectives.map((obj, i) => (
-                  <div 
+                  <div
                     key={obj.id}
                     className={`bg-gradient-to-br from-${obj.color}-50 to-${obj.color}-100/50 rounded-2xl p-6 border-2 border-${obj.color}-200 card-3d slide-up`}
                     style={{ animationDelay: `${i * 0.15}s` }}
@@ -1058,7 +1058,7 @@ const ADHDProposal = () => {
                 YPM Logo
               </div>
             </div>
-            <p className="text-slate-400 text-sm">โครงการ ADHD to Ability © 2569 | Young Policy Maker #2</p>
+            <p className="text-slate-400 text-sm">โครงการ ADHD to Ability © 2569 | Young Policy Makers #2</p>
             <p className="text-slate-400 text-xs mt-1">ทีม A Dee H Dee</p>
           </div>
         </footer>
