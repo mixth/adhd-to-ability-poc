@@ -10,6 +10,8 @@ const ADHDProposal = () => {
   const [overlayAnimating, setOverlayAnimating] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [particles, setParticles] = useState([]);
+  const [showFrameworkModal, setShowFrameworkModal] = useState(false);
+  const [frameworkModalAnimating, setFrameworkModalAnimating] = useState(false);
   const containerRef = useRef(null);
 
   // Handle overlay open/close with animation
@@ -33,6 +35,22 @@ const ADHDProposal = () => {
     }, 300);
   };
 
+  const openFrameworkModal = () => {
+    setShowFrameworkModal(true);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setFrameworkModalAnimating(true);
+      });
+    });
+  };
+
+  const closeFrameworkModal = () => {
+    setFrameworkModalAnimating(false);
+    setTimeout(() => {
+      setShowFrameworkModal(false);
+    }, 300);
+  };
+
   useEffect(() => {
     setTimeout(() => setLoaded(true), 100);
     const newParticles = Array.from({ length: 25 }, (_, i) => ({
@@ -48,6 +66,17 @@ const ADHDProposal = () => {
     }));
     setParticles(newParticles);
   }, []);
+
+  // ESC key to close framework modal
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === 'Escape' && showFrameworkModal) {
+        closeFrameworkModal();
+      }
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, [showFrameworkModal]);
 
   const handleMouseMove = (e) => {
     if (containerRef.current) {
@@ -1334,6 +1363,18 @@ const ADHDProposal = () => {
                   กระทรวงสาธารณสุข • กรมสุขภาพจิต • กระทรวงศึกษาธิการ
                 </div>
               </div>
+
+              {/* Full Framework Link */}
+              <div className="mt-6">
+                <button
+                  onClick={openFrameworkModal}
+                  className="w-full py-4 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 rounded-2xl font-medium text-white transition-all flex items-center justify-center gap-3 group shadow-lg hover:shadow-xl"
+                >
+                  <span className="text-2xl">🔍</span>
+                  <span className="text-lg">ดูกรอบแนวคิดฉบับเต็ม</span>
+                  <span className="text-xl group-hover:translate-x-1 transition-transform">→</span>
+                </button>
+              </div>
             </div>
           </section>
         )}
@@ -1551,6 +1592,67 @@ const ADHDProposal = () => {
           </div>
         </footer>
       </div>
+
+      {/* Framework Full Image Modal */}
+      {showFrameworkModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
+          onClick={closeFrameworkModal}
+        >
+          {/* Backdrop */}
+          <div
+            className={`absolute inset-0 bg-black/90 overlay-backdrop ${
+              frameworkModalAnimating
+                ? "overlay-backdrop-active"
+                : "overlay-backdrop-enter"
+            }`}
+          />
+          {/* Modal Content */}
+          <div
+            className={`relative max-w-7xl w-full max-h-[90vh] overlay-content ${
+              frameworkModalAnimating
+                ? "overlay-content-active"
+                : "overlay-content-enter"
+            }`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={closeFrameworkModal}
+              className="absolute -top-12 right-0 md:-right-12 md:top-0 w-10 h-10 flex items-center justify-center rounded-full bg-white hover:bg-gray-100 text-gray-800 transition-colors shadow-lg z-10"
+              aria-label="Close"
+            >
+              <span className="text-2xl">✕</span>
+            </button>
+
+            {/* Image Container with Zoom */}
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+              <div className="overflow-auto max-h-[85vh]">
+                <img
+                  src={`${import.meta.env.BASE_URL}assets/framework-full.jpg`}
+                  alt="กรอบแนวคิดฉบับเต็ม"
+                  className="w-full h-auto cursor-zoom-in hover:scale-105 transition-transform duration-300"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (e.target.style.transform === 'scale(2)') {
+                      e.target.style.transform = 'scale(1)';
+                      e.target.style.cursor = 'zoom-in';
+                    } else {
+                      e.target.style.transform = 'scale(2)';
+                      e.target.style.cursor = 'zoom-out';
+                    }
+                  }}
+                />
+              </div>
+              <div className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 text-center">
+                <p className="text-sm text-gray-600">
+                  💡 คลิกที่รูปภาพเพื่อซูม | กดปุ่ม ESC หรือคลิกนอกภาพเพื่อปิด
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
