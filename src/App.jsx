@@ -31,6 +31,7 @@ const ADHDProposal = () => {
   const [showFrameworkModal, setShowFrameworkModal] = useState(false);
   const containerRef = useRef(null);
   const imageRef = useRef(null);
+  const navRef = useRef(null);
 
   useEffect(() => {
     setTimeout(() => setLoaded(true), 100);
@@ -55,6 +56,18 @@ const ADHDProposal = () => {
         y: ((e.clientY - rect.top) / rect.height) * 100,
       });
     }
+  };
+
+  const handleSectionChangeWithScroll = (newSection) => {
+    setActiveSection(newSection);
+    // Use requestAnimationFrame to ensure scroll happens after React re-renders and browser paints
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        if (navRef.current) {
+          navRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
   };
 
   const renderActiveSection = () => {
@@ -94,6 +107,7 @@ const ADHDProposal = () => {
         <Header loaded={loaded} />
 
         <Navigation
+          ref={navRef}
           sections={sections}
           activeSection={activeSection}
           setActiveSection={setActiveSection}
@@ -104,7 +118,7 @@ const ADHDProposal = () => {
         <Pagination
           sections={sections}
           activeSection={activeSection}
-          setActiveSection={setActiveSection}
+          onNavigate={handleSectionChangeWithScroll}
         />
 
         <Footer />
