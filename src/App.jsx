@@ -30,10 +30,22 @@ const ADHDProposal = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [showFrameworkModal, setShowFrameworkModal] = useState(false);
   const containerRef = useRef(null);
+  const imageRef = useRef(null);
 
   useEffect(() => {
     setTimeout(() => setLoaded(true), 100);
   }, []);
+
+  // ESC key to close framework modal
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === "Escape" && showFrameworkModal) {
+        closeFrameworkModal();
+      }
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [showFrameworkModal]);
 
   const handleMouseMove = (e) => {
     if (containerRef.current) {
