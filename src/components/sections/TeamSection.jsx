@@ -9,7 +9,7 @@ const TeamSection = () => (
       <h3 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
         A Dee H Dee
       </h3>
-      <p className="text-2xl text-slate-600 mb-8">(อะดี... เฮ็ดดี..)</p>
+      <p className="text-2xl text-slate-600 mb-8">(อะดี... เฮ็ดดี...)</p>
 
       <div className="mt-6">
         <h4 className="text-sm text-slate-400 mb-4">สมาชิกในทีม</h4>

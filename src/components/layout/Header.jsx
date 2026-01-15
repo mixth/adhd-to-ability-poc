@@ -6,7 +6,7 @@ const Header = ({ loaded }) => (
   >
     <div className="inline-block mb-10 slide-up">
       <span className="px-5 py-2 bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-full text-sm font-bold shadow-lg shadow-teal-200">
-        Young Policy Makers #2
+        ✨ Young Policy Makers #2 ✨
       </span>
     </div>
     <h1 className="text-3xl md:text-5xl font-bold gradient-text mb-3 slide-up stagger-1">
@@ -22,7 +22,7 @@ const Header = ({ loaded }) => (
     </p>
     <div className="flex justify-center gap-3 mt-4 slide-up stagger-4">
       <span className="px-3 py-1.5 bg-teal-100 text-teal-700 rounded-full text-sm font-medium">
-        หมวด: สุขภาพจิต
+        หมวด: สุขภาพจิต ♥️
       </span>
     </div>
   </header>
