@@ -1,12 +1,25 @@
 import React from "react";
 
-const Pagination = ({ sections, activeSection, setActiveSection }) => (
+const Pagination = ({ sections, activeSection, onNavigate }) => {
+  const handlePrevious = () => {
+    if (activeSection > 1) {
+      onNavigate(activeSection - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (activeSection < sections.length) {
+      onNavigate(activeSection + 1);
+    }
+  };
+
+  return (
   <div className="mt-8 slide-up stagger-4">
     <div className="glass rounded-2xl p-4">
       <div className="flex items-center justify-between gap-3">
         {/* Previous Button */}
         <button
-          onClick={() => setActiveSection((prev) => Math.max(1, prev - 1))}
+          onClick={handlePrevious}
           disabled={activeSection === 1}
           className={`nav-item px-4 py-4 rounded-xl text-sm font-medium flex items-center gap-2 transition-all flex-1 min-h-[56px] ${
             activeSection === 1
@@ -34,9 +47,7 @@ const Pagination = ({ sections, activeSection, setActiveSection }) => (
 
         {/* Next Button */}
         <button
-          onClick={() =>
-            setActiveSection((prev) => Math.min(sections.length, prev + 1))
-          }
+          onClick={handleNext}
           disabled={activeSection === sections.length}
           className={`nav-item px-4 py-4 rounded-xl text-sm font-medium flex items-center gap-2 transition-all flex-1 min-h-[56px] justify-end ${
             activeSection === sections.length
@@ -64,6 +75,7 @@ const Pagination = ({ sections, activeSection, setActiveSection }) => (
       </div>
     </div>
   </div>
-);
+  );
+};
 
 export default Pagination;

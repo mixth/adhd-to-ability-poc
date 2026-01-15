@@ -1,7 +1,7 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-const Navigation = ({ sections, activeSection, setActiveSection }) => (
-  <nav className="glass rounded-2xl p-4 mb-8 slide-up stagger-3">
+const Navigation = forwardRef(({ sections, activeSection, setActiveSection }, ref) => (
+  <nav ref={ref} className="glass rounded-2xl p-4 mb-8 slide-up stagger-3">
     <div className="flex flex-wrap justify-center gap-2">
       {sections.map((section) => (
         <button
@@ -20,6 +20,6 @@ const Navigation = ({ sections, activeSection, setActiveSection }) => (
       ))}
     </div>
   </nav>
-);
+));
 
 export default Navigation;
