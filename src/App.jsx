@@ -64,8 +64,8 @@ const ADHDProposal = () => {
     { id: 2, title: "ชื่อโครงการ", icon: "📋" },
     { id: 3, title: "ความเป็นมาและเหตุผล", icon: "📖" },
     { id: 4, title: "กรอบแนวคิด", icon: "🔄" },
-    { id: 5, title: "เป้าประสงค์ระยะยาว", icon: "🎯" },
-    { id: 6, title: "วัตถุประสงค์", icon: "✅" },
+    { id: 5, title: "วัตถุประสงค์", icon: "✅" },
+    { id: 6, title: "เป้าประสงค์ระยะยาว", icon: "🎯" },
   ];
 
   const objectives = [
@@ -1338,8 +1338,8 @@ const ADHDProposal = () => {
           </section>
         )}
 
-        {/* Section 5: Long-term Goals */}
-        {activeSection === 5 && (
+        {/* Section 6: Long-term Goals */}
+        {activeSection === 6 && (
           <section className="slide-up">
             <div className="glass rounded-3xl p-8 section-card">
               <div className="flex items-center gap-3 mb-6">
@@ -1375,8 +1375,8 @@ const ADHDProposal = () => {
           </section>
         )}
 
-        {/* Section 6: Objectives */}
-        {activeSection === 6 && (
+        {/* Section 5: Objectives */}
+        {activeSection === 5 && (
           <section className="slide-up space-y-6">
             <div className="glass rounded-3xl p-8 section-card">
               <div className="flex items-center gap-3 mb-6">
