@@ -493,7 +493,7 @@ const ADHDProposal = () => {
               <h3 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
                 A Dee H Dee
               </h3>
-              <p className="text-2xl text-slate-600">(อะดี... เฮ็ดดี..)</p>
+              <p className="text-2xl text-slate-600">(อะดี... เฮ็ดดี...)</p>
             </div>
           </section>
         )}
