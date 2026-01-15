@@ -1629,7 +1629,7 @@ const ADHDProposal = () => {
             <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
               <div className="overflow-auto max-h-[85vh]">
                 <img
-                  src={`${import.meta.env.BASE_URL}assets/framework-full.jpg`}
+                  src={`${import.meta.env.BASE_URL}assets/framework-full.png`}
                   alt="กรอบแนวคิดฉบับเต็ม"
                   className="w-full h-auto cursor-zoom-in hover:scale-105 transition-transform duration-300"
                   onClick={(e) => {
