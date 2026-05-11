@@ -14,13 +14,69 @@ body {
   position: relative;
 }
 
-/* Soft purple radial bloom — calm, per design-system guidance */
+/* Purple/gold radial bloom — alive, drifting and pulsing */
 .page-bg {
   position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  overflow: hidden;
   background:
-    radial-gradient(60% 50% at 18% -5%, rgba(126,77,191,.10), transparent 60%),
-    radial-gradient(45% 40% at 95% 8%, rgba(239,180,32,.08), transparent 60%),
-    radial-gradient(40% 35% at 80% 95%, rgba(126,77,191,.06), transparent 60%);
+    radial-gradient(45% 40% at 95% 8%, rgba(239,180,32,.38), transparent 62%),
+    radial-gradient(55% 50% at 12% -2%, rgba(126,77,191,.42), transparent 62%);
+  animation: bgPulse 9s var(--ease-in-out) infinite;
+}
+.page-bg::before,
+.page-bg::after {
+  content: "";
+  position: absolute; inset: -30%;
+  will-change: transform;
+}
+.page-bg::before {
+  background: radial-gradient(60% 50% at 18% -5%, rgba(126,77,191,.46), transparent 60%);
+  animation: bgDriftA 16s var(--ease-in-out) infinite;
+}
+.page-bg::after {
+  background: radial-gradient(40% 35% at 80% 95%, rgba(126,77,191,.36), transparent 60%);
+  animation: bgDriftB 21s var(--ease-in-out) infinite -7s;
+}
+@keyframes bgPulse {
+  0%, 100% { opacity: 0.7; }
+  50%      { opacity: 1; }
+}
+@keyframes bgDriftA {
+  0%   { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+  50%  { transform: translate3d(14vw, 10vh, 0) scale(1.35) rotate(8deg); }
+  100% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+}
+@keyframes bgDriftB {
+  0%   { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+  50%  { transform: translate3d(-16vw, -12vh, 0) scale(1.4) rotate(-10deg); }
+  100% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+}
+.page-bg-stars {
+  position: absolute; inset: 0;
+  pointer-events: none;
+}
+.bg-star {
+  position: absolute;
+  color: var(--brand-purple-400);
+  opacity: 0;
+  animation-name: starFloat;
+  animation-timing-function: var(--ease-in-out);
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+.bg-star:nth-child(even) { color: var(--brand-gold-400); }
+.bg-star:nth-child(3n)   { color: var(--brand-purple-300); }
+@keyframes starFloat {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0; }
+  20%      { opacity: 0.22; }
+  50%      { transform: translate3d(-10px, -16px, 0) rotate(45deg); opacity: 0.28; }
+  80%      { opacity: 0.18; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-bg,
+  .page-bg::before,
+  .page-bg::after { animation: none; }
+  .bg-star { animation: none; opacity: 0.18; }
 }
 
 .page {

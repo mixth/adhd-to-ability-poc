@@ -7,8 +7,9 @@ const Header = () => (
       Young Policy Makers #2
     </span>
     <img
+      style={{ paddingLeft: 24 }}
       className="brand-logo"
-      src={`${import.meta.env.BASE_URL}assets/logo-color-horizontal.png`}
+      src={`${import.meta.env.BASE_URL}assets/logo-vertical-cropped.png`}
       alt="ADHD to Ability"
     />
     <p className="subhead">
