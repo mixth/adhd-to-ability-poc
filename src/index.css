@@ -1,7 +1,1 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body {
-  font-family: 'Google Sans', sans-serif;
-}
+/* Design tokens and global styles live in ./styles/tokens.css and ./styles/styles.css */

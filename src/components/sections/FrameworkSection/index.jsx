@@ -1,86 +1,63 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
+import Icon from "../../../utils/Icon";
 import TwoPillarsStrategy from "./TwoPillarsStrategy";
-import LiquidBlobs from "./LiquidBlobs";
 import FlowchartDiagram from "./FlowchartDiagram";
-import PolicyOverlay from "./PolicyOverlay";
 import Partners from "./Partners";
+import PolicyOverlay from "./PolicyOverlay";
 
-const FrameworkSection = ({ onOpenFullFramework }) => {
-  const [activeFramework, setActiveFramework] = useState(null);
-  const [showDetails, setShowDetails] = useState(null);
-  const [overlayVisible, setOverlayVisible] = useState(false);
-  const [overlayAnimating, setOverlayAnimating] = useState(false);
+const PROBLEMS = [
+  { icon: "pill", text: "ความไม่เท่าเทียมในการเข้าถึงยาที่มีประสิทธิภาพ" },
+  { icon: "tag", text: "ตราบาปทางสังคมที่ทำให้ผู้ปกครองปฏิเสธการรักษา" },
+];
 
-  const openOverlay = (detail) => {
-    setShowDetails(detail);
-    setOverlayVisible(true);
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        setOverlayAnimating(true);
-      });
-    });
-  };
+const FrameworkSection = () => {
+  const [activePillar, setActivePillar] = useState(null);
+  const [overlayId, setOverlayId] = useState(null);
 
-  const closeOverlay = () => {
-    setOverlayAnimating(false);
-    setTimeout(() => {
-      setOverlayVisible(false);
-      setShowDetails(null);
-    }, 300);
-  };
+  useEffect(() => {
+    const onEsc = (e) => {
+      if (e.key === "Escape") setOverlayId(null);
+    };
+    window.addEventListener("keydown", onEsc);
+    return () => window.removeEventListener("keydown", onEsc);
+  }, []);
 
   return (
-    <section className="slide-up space-y-6">
-      <div className="glass rounded-3xl p-6 md:p-8 section-card">
-        <div className="flex items-center gap-3 mb-6">
-          <span className="text-4xl">🔄</span>
-          <h2 className="text-2xl font-bold text-slate-800">
-            กรอบแนวคิดในการขับเคลื่อนนโยบาย
-          </h2>
+    <section>
+      <div className="card-default">
+        <div className="section-head">
+          <div className="head-icon">
+            <Icon name="git-branch" />
+          </div>
+          <h2>กรอบแนวคิดในการขับเคลื่อนนโยบาย</h2>
         </div>
 
+        <div className="fw-section-title">ประเด็นปัญหาที่ต้องการขับเคลื่อน</div>
+        <div className="problem-grid">
+          {PROBLEMS.map((p) => (
+            <div className="problem-card" key={p.text}>
+              <div className="pc-icon">
+                <Icon name={p.icon} />
+              </div>
+              <p>{p.text}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="fw-section-title">กลยุทธ์ 2 เสาหลัก</div>
         <TwoPillarsStrategy
-          activeFramework={activeFramework}
-          setActiveFramework={setActiveFramework}
+          activePillar={activePillar}
+          onTogglePillar={setActivePillar}
         />
 
-        {/* Flowchart Visual - Liquid Glass iOS 26 Style */}
-        <div className="relative rounded-3xl p-8 md:p-12 min-h-[500px]">
-          {/* Liquid Glass Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-100/80 via-white/60 to-blue-50/80"></div>
-
-          <LiquidBlobs />
-
-          {/* Glass overlay */}
-          <div className="absolute inset-0 backdrop-blur-sm bg-white/10"></div>
-
-          <FlowchartDiagram openOverlay={openOverlay} />
-
-          {overlayVisible && (
-            <PolicyOverlay
-              showDetails={showDetails}
-              overlayAnimating={overlayAnimating}
-              closeOverlay={closeOverlay}
-            />
-          )}
-        </div>
+        <FlowchartDiagram onOpenOverlay={setOverlayId} />
 
         <Partners />
-
-        {/* Full Framework Link */}
-        <div className="mt-6">
-          <button
-            onClick={onOpenFullFramework}
-            className="w-full py-4 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 rounded-2xl font-medium text-white transition-all flex items-center justify-center gap-3 group shadow-lg hover:shadow-xl"
-          >
-            <span className="text-2xl">🔍</span>
-            <span className="text-lg">ดูกรอบแนวคิดฉบับเต็ม</span>
-            <span className="text-xl group-hover:translate-x-1 transition-transform">
-              →
-            </span>
-          </button>
-        </div>
       </div>
+
+      {overlayId && (
+        <PolicyOverlay id={overlayId} onClose={() => setOverlayId(null)} />
+      )}
     </section>
   );
 };

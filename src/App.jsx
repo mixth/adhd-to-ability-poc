@@ -1,19 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
-import FrameworkImageModal from "./components/modals/FrameworkImageModal";
+import { useState, useRef } from "react";
 
-// Styles
-import GlobalStyles from "./styles/GlobalStyles";
-
-// Layout Components
 import Header from "./components/layout/Header";
 import Navigation from "./components/layout/Navigation";
 import Pagination from "./components/layout/Pagination";
 import Footer from "./components/layout/Footer";
 
-// Background Components
-import AnimatedBackground from "./components/background/AnimatedBackground";
-
-// Section Components
 import TeamSection from "./components/sections/TeamSection";
 import ProjectNameSection from "./components/sections/ProjectNameSection";
 import BackgroundSection from "./components/sections/BackgroundSection";
@@ -21,116 +12,55 @@ import FrameworkSection from "./components/sections/FrameworkSection";
 import ObjectivesSection from "./components/sections/ObjectivesSection";
 import LongTermGoalsSection from "./components/sections/LongTermGoalsSection";
 
-// Data
 import { sections } from "./data/sections";
 
-const ADHDProposal = () => {
-  const [loaded, setLoaded] = useState(false);
+const SCREENS = {
+  1: TeamSection,
+  2: ProjectNameSection,
+  3: BackgroundSection,
+  4: FrameworkSection,
+  5: ObjectivesSection,
+  6: LongTermGoalsSection,
+};
+
+const App = () => {
   const [activeSection, setActiveSection] = useState(1);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [showFrameworkModal, setShowFrameworkModal] = useState(false);
-  const containerRef = useRef(null);
-  const imageRef = useRef(null);
   const navRef = useRef(null);
 
-  useEffect(() => {
-    setTimeout(() => setLoaded(true), 100);
-  }, []);
-
-  // ESC key to close framework modal
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape" && showFrameworkModal) {
-        closeFrameworkModal();
-      }
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, [showFrameworkModal]);
-
-  const handleMouseMove = (e) => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
-      setMousePos({
-        x: ((e.clientX - rect.left) / rect.width) * 100,
-        y: ((e.clientY - rect.top) / rect.height) * 100,
-      });
-    }
-  };
-
-  const handleSectionChangeWithScroll = (newSection) => {
-    setActiveSection(newSection);
-    // Use requestAnimationFrame to ensure scroll happens after React re-renders and browser paints
+  const navigate = (id) => {
+    setActiveSection(id);
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        if (navRef.current) {
-          navRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
+        navRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });
   };
 
-  const renderActiveSection = () => {
-    switch (activeSection) {
-      case 1:
-        return <TeamSection />;
-      case 2:
-        return <ProjectNameSection />;
-      case 3:
-        return <BackgroundSection />;
-      case 4:
-        return (
-          <FrameworkSection
-            onOpenFullFramework={() => setShowFrameworkModal(true)}
-          />
-        );
-      case 5:
-        return <ObjectivesSection />;
-      case 6:
-        return <LongTermGoalsSection />;
-      default:
-        return <TeamSection />;
-    }
-  };
+  const ActiveScreen = SCREENS[activeSection] ?? TeamSection;
 
   return (
-    <div
-      ref={containerRef}
-      onMouseMove={handleMouseMove}
-      className="min-h-screen relative overflow-hidden"
-      style={{ fontFamily: "'Google Sans', sans-serif" }}
-    >
-      <GlobalStyles />
-      <AnimatedBackground mousePos={mousePos} />
-
-      <div className="relative z-10 p-8 md:p-16 max-w-7xl mx-auto">
-        <Header loaded={loaded} />
-
+    <>
+      <div className="page-bg" />
+      <div className="page">
+        <Header />
         <Navigation
           ref={navRef}
           sections={sections}
-          activeSection={activeSection}
-          setActiveSection={setActiveSection}
+          active={activeSection}
+          onChange={setActiveSection}
         />
-
-        {renderActiveSection()}
-
+        <div className="screen-wrap" key={activeSection}>
+          <ActiveScreen />
+        </div>
         <Pagination
           sections={sections}
-          activeSection={activeSection}
-          onNavigate={handleSectionChangeWithScroll}
+          active={activeSection}
+          onNavigate={navigate}
         />
-
         <Footer />
       </div>
-
-      {/* Framework Full Image Modal */}
-      <FrameworkImageModal
-        isOpen={showFrameworkModal}
-        onClose={() => setShowFrameworkModal(false)}
-      />
-    </div>
+    </>
   );
 };
 
-export default ADHDProposal;
+export default App;

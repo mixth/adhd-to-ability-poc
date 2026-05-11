@@ -1,0 +1,73 @@
+import {
+  AlertTriangle,
+  ArrowRight,
+  Baby,
+  BookOpen,
+  BookOpenText,
+  Book,
+  Brain,
+  Calendar,
+  CheckCircle2,
+  ChevronDown,
+  ClipboardList,
+  FileText,
+  GitBranch,
+  Handshake,
+  Heart,
+  Hospital,
+  Megaphone,
+  PartyPopper,
+  Pill,
+  RefreshCw,
+  Rocket,
+  School,
+  Search,
+  Smartphone,
+  Sparkles,
+  Tag,
+  Target,
+  TrendingUp,
+  Users,
+  Wallet,
+} from "lucide-react";
+
+const REGISTRY = {
+  "alert-triangle": AlertTriangle,
+  "arrow-right": ArrowRight,
+  baby: Baby,
+  "book-open": BookOpen,
+  "book-open-text": BookOpenText,
+  book: Book,
+  brain: Brain,
+  calendar: Calendar,
+  "check-circle-2": CheckCircle2,
+  "chevron-down": ChevronDown,
+  "clipboard-list": ClipboardList,
+  "file-text": FileText,
+  "git-branch": GitBranch,
+  handshake: Handshake,
+  heart: Heart,
+  hospital: Hospital,
+  megaphone: Megaphone,
+  "party-popper": PartyPopper,
+  pill: Pill,
+  "refresh-cw": RefreshCw,
+  rocket: Rocket,
+  school: School,
+  search: Search,
+  smartphone: Smartphone,
+  sparkles: Sparkles,
+  tag: Tag,
+  target: Target,
+  "trending-up": TrendingUp,
+  users: Users,
+  wallet: Wallet,
+};
+
+const Icon = ({ name, ...props }) => {
+  const Component = REGISTRY[name];
+  if (!Component) return null;
+  return <Component {...props} />;
+};
+
+export default Icon;

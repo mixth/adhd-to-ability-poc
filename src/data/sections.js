@@ -1,10 +1,10 @@
 export const sections = [
-  { id: 1, title: "ชื่อทีม", icon: "👥" },
-  { id: 2, title: "ชื่อโครงการ", icon: "📋" },
-  { id: 3, title: "ความเป็นมาและเหตุผล", icon: "📖" },
-  { id: 4, title: "กรอบแนวคิด", icon: "🔄" },
-  { id: 5, title: "วัตถุประสงค์", icon: "✅" },
-  { id: 6, title: "เป้าประสงค์ระยะยาว", icon: "🎯" },
+  { id: 1, title: "ชื่อทีม", icon: "users" },
+  { id: 2, title: "ชื่อโครงการ", icon: "clipboard-list" },
+  { id: 3, title: "ความเป็นมาและเหตุผล", icon: "book-open" },
+  { id: 4, title: "กรอบแนวคิด", icon: "git-branch" },
+  { id: 5, title: "วัตถุประสงค์", icon: "check-circle-2" },
+  { id: 6, title: "เป้าประสงค์ระยะยาว", icon: "target" },
 ];
 
 export const teamMembers = [

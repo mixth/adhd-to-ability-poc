@@ -1,36 +1,25 @@
-import React from "react";
+import Icon from "../../utils/Icon";
 
 const LongTermGoalsSection = () => (
-  <section className="slide-up">
-    <div className="glass rounded-3xl p-8 section-card">
-      <div className="flex items-center gap-3 mb-6">
-        <span className="text-4xl">🎯</span>
-        <h2 className="text-2xl font-bold text-slate-800">
-          เป้าประสงค์ เป้าหมายระยะยาว
-        </h2>
+  <section>
+    <div className="card-default">
+      <div className="section-head">
+        <div className="head-icon">
+          <Icon name="target" />
+        </div>
+        <h2>เป้าประสงค์ เป้าหมายระยะยาว</h2>
       </div>
 
-      <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-6 border-2 border-emerald-200 mb-6">
-        <p className="text-lg text-slate-700 leading-relaxed">
-          เด็กไทยที่มีภาวะสมาธิสั้น (ADHD){" "}
-          <strong className="text-emerald-700">ทุกคน</strong>{" "}
-          ได้รับการคัดกรอง วินิจฉัย
-          และเข้าถึงการรักษาที่มีประสิทธิภาพอย่างเท่าเทียม
-          โดยปราศจากอุปสรรคด้านตราบาปทางสังคมและข้อจำกัดด้านค่าใช้จ่าย
-          ส่งผลให้เด็ก ADHD สามารถพัฒนาศักยภาพได้เต็มที่
-          มีคุณภาพชีวิตที่ดี
-          และเติบโตเป็นพลเมืองที่มีส่วนร่วมในการพัฒนาประเทศ
+      <div className="goals-aspiration">
+        <p>
+          เด็กไทยที่มีภาวะสมาธิสั้น (ADHD) <strong>ทุกคน</strong> ได้รับการคัดกรอง วินิจฉัย และเข้าถึงการรักษาที่มีประสิทธิภาพอย่างเท่าเทียม โดยปราศจากอุปสรรคด้านตราบาปทางสังคมและข้อจำกัดด้านค่าใช้จ่าย ส่งผลให้เด็ก ADHD สามารถพัฒนาศักยภาพได้เต็มที่ มีคุณภาพชีวิตที่ดี และเติบโตเป็นพลเมืองที่มีส่วนร่วมในการพัฒนาประเทศ
         </p>
       </div>
 
-      <div className="bg-gradient-to-r from-teal-500 to-cyan-500 rounded-2xl p-6 text-white text-center">
-        <div className="text-sm opacity-90 mb-2">วิสัยทัศน์</div>
-        <div className="text-2xl md:text-3xl font-bold">
-          &quot;ตรวจเร็ว รู้ไว ไร้ตรา เด็กกล้าโต&quot;
-        </div>
-        <div className="text-sm opacity-90 mt-2">
-          ค้นพบเร็ว ไม่มีตราบาป เด็กเติบโตอย่างมั่นใจ
-        </div>
+      <div className="vision-card">
+        <div className="v-label">วิสัยทัศน์</div>
+        <div className="v-tagline">&quot;ตรวจเร็ว รู้ไว ไร้ตรา เด็กกล้าโต&quot;</div>
+        <div className="v-en">ค้นพบเร็ว ไม่มีตราบาป เด็กเติบโตอย่างมั่นใจ</div>
       </div>
     </div>
   </section>

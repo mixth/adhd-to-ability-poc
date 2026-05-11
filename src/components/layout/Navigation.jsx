@@ -1,25 +1,25 @@
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
+import Icon from "../../utils/Icon";
 
-const Navigation = forwardRef(({ sections, activeSection, setActiveSection }, ref) => (
-  <nav ref={ref} className="glass rounded-2xl p-4 mb-8 slide-up stagger-3">
-    <div className="flex flex-wrap justify-center gap-2">
-      {sections.map((section) => (
+const Navigation = forwardRef(function Navigation(
+  { sections, active, onChange },
+  ref,
+) {
+  return (
+    <nav className="section-nav" ref={ref}>
+      {sections.map((s) => (
         <button
-          key={section.id}
-          onClick={() => setActiveSection(section.id)}
-          className={`nav-item px-4 py-2 rounded-xl text-sm font-medium flex items-center gap-2 ${
-            activeSection === section.id
-              ? "active shadow-lg"
-              : "bg-white/50 hover:bg-white text-slate-600"
-          }`}
-          title={section.title}
+          key={s.id}
+          className={"nav-item" + (active === s.id ? " active" : "")}
+          onClick={() => onChange(s.id)}
+          title={s.title}
         >
-          <span className="text-lg md:text-base">{section.icon}</span>
-          <span className="hidden md:inline">{section.title}</span>
+          <Icon name={s.icon} />
+          <span>{s.title}</span>
         </button>
       ))}
-    </div>
-  </nav>
-));
+    </nav>
+  );
+});
 
 export default Navigation;
