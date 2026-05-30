@@ -1,11 +1,14 @@
 export const sections = [
-  { id: 1, title: "ชื่อทีม", icon: "users" },
-  { id: 2, title: "ชื่อโครงการ", icon: "clipboard-list" },
-  { id: 3, title: "ความเป็นมาและเหตุผล", icon: "book-open" },
-  { id: 4, title: "กรอบแนวคิด", icon: "git-branch" },
-  { id: 5, title: "วัตถุประสงค์", icon: "check-circle-2" },
-  { id: 6, title: "เป้าประสงค์ระยะยาว", icon: "target" },
+  { id: 1, title: "ชื่อทีม", icon: "users", slug: "" },
+  { id: 2, title: "ชื่อโครงการ", icon: "clipboard-list", slug: "project-name" },
+  { id: 3, title: "ความเป็นมาและเหตุผล", icon: "book-open", slug: "background" },
+  { id: 4, title: "กรอบแนวคิด", icon: "git-branch", slug: "framework" },
+  { id: 5, title: "วัตถุประสงค์", icon: "check-circle-2", slug: "objectives" },
+  { id: 6, title: "เป้าประสงค์ระยะยาว", icon: "target", slug: "long-term-goals" },
 ];
+
+// Build an absolute route path from a section slug ("" → "/").
+export const sectionPath = (slug) => (slug ? `/${slug}` : "/");
 
 export const teamMembers = [
   {

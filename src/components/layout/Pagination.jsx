@@ -1,18 +1,16 @@
+import { Link } from "react-router-dom";
 import Icon from "../../utils/Icon";
+import { sectionPath } from "../../data/sections";
 
-const Pagination = ({ sections, active, onNavigate }) => {
+const Pagination = ({ sections, active }) => {
   const prev = sections[active - 2];
   const next = sections[active];
 
   return (
     <div className="pagination">
-      <button
-        className="page-btn prev"
-        onClick={() => prev && onNavigate(active - 1)}
-        disabled={!prev}
-      >
-        <span className="pb-arrow">←</span>
-        {prev ? (
+      {prev ? (
+        <Link className="page-btn prev" to={sectionPath(prev.slug)}>
+          <span className="pb-arrow">←</span>
           <span className="pb-stack">
             <span className="pb-eyebrow">ก่อนหน้า</span>
             <span className="pb-row">
@@ -20,19 +18,18 @@ const Pagination = ({ sections, active, onNavigate }) => {
               {prev.title}
             </span>
           </span>
-        ) : (
+        </Link>
+      ) : (
+        <span className="page-btn prev" aria-disabled="true">
+          <span className="pb-arrow">←</span>
           <span className="pb-stack">
             <span className="pb-eyebrow">ก่อนหน้า</span>
           </span>
-        )}
-      </button>
+        </span>
+      )}
 
-      <button
-        className="page-btn next"
-        onClick={() => next && onNavigate(active + 1)}
-        disabled={!next}
-      >
-        {next ? (
+      {next ? (
+        <Link className="page-btn next" to={sectionPath(next.slug)}>
           <span className="pb-stack">
             <span className="pb-eyebrow">ถัดไป</span>
             <span className="pb-row">
@@ -40,13 +37,16 @@ const Pagination = ({ sections, active, onNavigate }) => {
               <Icon name={next.icon} />
             </span>
           </span>
-        ) : (
+          <span className="pb-arrow">→</span>
+        </Link>
+      ) : (
+        <span className="page-btn next" aria-disabled="true">
           <span className="pb-stack">
             <span className="pb-eyebrow">ถัดไป</span>
           </span>
-        )}
-        <span className="pb-arrow">→</span>
-      </button>
+          <span className="pb-arrow">→</span>
+        </span>
+      )}
     </div>
   );
 };

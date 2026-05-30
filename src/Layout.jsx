@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+import { useEffect, useRef } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 import { Sparkles } from "lucide-react";
 
 import Header from "./components/layout/Header";
@@ -6,23 +7,7 @@ import Navigation from "./components/layout/Navigation";
 import Pagination from "./components/layout/Pagination";
 import Footer from "./components/layout/Footer";
 
-import TeamSection from "./components/sections/TeamSection";
-import ProjectNameSection from "./components/sections/ProjectNameSection";
-import BackgroundSection from "./components/sections/BackgroundSection";
-import FrameworkSection from "./components/sections/FrameworkSection";
-import ObjectivesSection from "./components/sections/ObjectivesSection";
-import LongTermGoalsSection from "./components/sections/LongTermGoalsSection";
-
 import { sections } from "./data/sections";
-
-const SCREENS = {
-  1: TeamSection,
-  2: ProjectNameSection,
-  3: BackgroundSection,
-  4: FrameworkSection,
-  5: ObjectivesSection,
-  6: LongTermGoalsSection,
-};
 
 const STARS = [
   { top: "6%",  left: "14%", size: 18, delay: 0,    dur: 12 },
@@ -45,20 +30,28 @@ const STARS = [
   { top: "80%", left: "90%", size: 14, delay: 2.2,  dur: 15 },
 ];
 
-const App = () => {
-  const [activeSection, setActiveSection] = useState(1);
+const Layout = () => {
+  const location = useLocation();
   const navRef = useRef(null);
+  const mounted = useRef(false);
 
-  const navigate = (id) => {
-    setActiveSection(id);
+  const slug = location.pathname.replace(/^\/+|\/+$/g, "");
+  const activeSection =
+    sections.find((s) => s.slug === slug)?.id ?? sections[0].id;
+
+  // Smooth-scroll up to the nav on navigation, but not on the initial load
+  // (or hydration), so deep-linking to a section doesn't yank the page.
+  useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true;
+      return;
+    }
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         navRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });
-  };
-
-  const ActiveScreen = SCREENS[activeSection] ?? TeamSection;
+  }, [location.pathname]);
 
   return (
     <>
@@ -82,24 +75,15 @@ const App = () => {
       </div>
       <div className="page">
         <Header />
-        <Navigation
-          ref={navRef}
-          sections={sections}
-          active={activeSection}
-          onChange={setActiveSection}
-        />
-        <div className="screen-wrap" key={activeSection}>
-          <ActiveScreen />
+        <Navigation ref={navRef} sections={sections} active={activeSection} />
+        <div className="screen-wrap" key={location.pathname}>
+          <Outlet />
         </div>
-        <Pagination
-          sections={sections}
-          active={activeSection}
-          onNavigate={navigate}
-        />
+        <Pagination sections={sections} active={activeSection} />
         <Footer />
       </div>
     </>
   );
 };
 
-export default App;
+export default Layout;
