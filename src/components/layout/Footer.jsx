@@ -1,7 +1,7 @@
 const SPONSORS = [
-  { src: "sponsor-logo1.jpg", alt: "AIDS Access Foundation" },
-  { src: "sponsor-logo2.jpg", alt: "สสส." },
-  { src: "sponsor-ypm.jpg", alt: "Young Policy Makers #2" },
+  { src: "aids-access.jpg", alt: "AIDS Access Foundation" },
+  { src: "ypm.jpg", alt: "Young Policy Makers #2" },
+  { src: "thai-health-fund.jpg", alt: "สสส." },
 ];
 
 const Footer = () => (

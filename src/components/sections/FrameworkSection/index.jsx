@@ -52,7 +52,7 @@ const FrameworkSection = () => {
 
         <FlowchartDiagram onOpenOverlay={setOverlayId} />
 
-        <Partners />
+        {/* <Partners />*/}
       </div>
 
       {overlayId && (

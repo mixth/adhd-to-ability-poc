@@ -126,6 +126,13 @@ body {
   font-size: 16px; line-height: 1.7;
   color: var(--fg-3);
 }
+/* Break the subhead at different points per screen size */
+.subhead .br-mobile { display: none; }
+.subhead .br-desktop { display: inline; }
+@media (max-width: 720px) {
+  .subhead .br-mobile { display: inline; }
+  .subhead .br-desktop { display: none; }
+}
 .header-tags { margin-top: 18px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
 
 /* tags */

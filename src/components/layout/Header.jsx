@@ -13,8 +13,9 @@ const Header = () => (
       alt="ADHD to Ability"
     />
     <p className="subhead">
-      ข้อเสนอโครงการย่อย ภายใต้โครงการพัฒนาต้นแบบการสนับสนุนคนรุ่นใหม่
-      <br />
+      ข้อเสนอโครงการย่อย <br className="br-mobile" />
+      ภายใต้โครงการพัฒนาต้นแบบการสนับสนุนคนรุ่นใหม่ <br className="br-mobile" />
+      <br className="br-desktop" />
       ให้สร้างนโยบายสาธารณะเพื่อสุขภาวะเด็ก เยาวชน และครอบครัว
     </p>
     <div className="header-tags">
