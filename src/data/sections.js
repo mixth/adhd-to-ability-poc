@@ -5,6 +5,7 @@ export const sections = [
   { id: 4, title: "กรอบแนวคิด", icon: "git-branch", slug: "framework" },
   { id: 5, title: "วัตถุประสงค์", icon: "check-circle-2", slug: "objectives" },
   { id: 6, title: "เป้าประสงค์ระยะยาว", icon: "target", slug: "long-term-goals" },
+  { id: 7, title: "ติดต่อเรา", icon: "message-circle", slug: "contact" },
 ];
 
 // Build an absolute route path from a section slug ("" → "/").

@@ -772,6 +772,48 @@ flex-shrink: 0; }
   font-size: 14px; opacity: .85;
 }
 
+/* ============================================================ CONTACT */
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-lg);
+  background: var(--paper-elev);
+  color: var(--fg-1);
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.contact-item:hover {
+  border-color: var(--line-brand);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex: none;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--bg-brand-soft), var(--bg-gold-soft));
+  color: var(--brand-purple-600);
+}
+.contact-icon svg { width: 24px; height: 24px; }
+.contact-label { word-break: break-word; }
+
 /* ============================================================ PAGINATION */
 .pagination {
   margin-top: 32px;
