@@ -985,7 +985,7 @@ flex-shrink: 0; }
   box-shadow: var(--shadow-lg);
   animation: overlayIn var(--dur-slow) var(--ease-spring) both;
 }
-.jingle-gate-logo { width: 180px; height: auto; margin-bottom: 20px; }
+.jingle-gate-logo { width: 180px; height: auto; margin-bottom: 20px; margin-left: 10px; }
 .jingle-gate-title {
   margin: 0 0 8px; font-size: 24px; font-weight: 700; color: var(--fg-1);
 }

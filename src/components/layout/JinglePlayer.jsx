@@ -305,13 +305,17 @@ const JinglePlayer = () => {
         >
           <div className="jingle-gate-backdrop" />
           <div className="jingle-gate-card">
-            <img className="jingle-gate-logo" src={LOGO} alt="ADHD to Ability" />
+            <img
+              className="jingle-gate-logo"
+              src={LOGO}
+              alt="ADHD to Ability"
+            />
             <h2 id="jingle-gate-title" className="jingle-gate-title">
               ยินดีต้อนรับ
             </h2>
             <p className="jingle-gate-copy">
               เว็บไซต์นี้มีเพลงประกอบ <br className="br-mobile" />
-              เลือกได้เลยว่าอยากฟังไปด้วยหรือไม่
+              ท่านสามารถเลือกได้ว่าอยากฟังไปด้วยหรือไม่
             </p>
             <div className="jingle-gate-actions">
               <button
@@ -321,7 +325,7 @@ const JinglePlayer = () => {
                 onClick={() => enter(true)}
               >
                 <Icon name="volume-2" />
-                เข้าชมพร้อมเสียง
+                เข้าชมพร้อมเพลงประกอบ
               </button>
               <button
                 type="button"
@@ -332,7 +336,9 @@ const JinglePlayer = () => {
                 เข้าชมแบบเงียบ
               </button>
             </div>
-            <p className="jingle-gate-note">เปลี่ยนใจได้ตลอดจากปุ่มมุมขวาล่าง</p>
+            <p className="jingle-gate-note">
+              เปลี่ยนใจได้ตลอดเพียงกดที่ปุ่มมุมขวาล่าง
+            </p>
           </div>
         </div>
       )}
