@@ -6,6 +6,7 @@ import Header from "./components/layout/Header";
 import Navigation from "./components/layout/Navigation";
 import Pagination from "./components/layout/Pagination";
 import Footer from "./components/layout/Footer";
+import JinglePlayer from "./components/layout/JinglePlayer";
 
 import { sections } from "./data/sections";
 
@@ -82,6 +83,7 @@ const Layout = () => {
         <Pagination sections={sections} active={activeSection} />
         <Footer />
       </div>
+      <JinglePlayer />
     </>
   );
 };

@@ -18,6 +18,7 @@ import {
   Mail,
   Megaphone,
   MessageCircle,
+  Music,
   PartyPopper,
   Pill,
   RefreshCw,
@@ -30,6 +31,8 @@ import {
   Target,
   TrendingUp,
   Users,
+  Volume2,
+  VolumeX,
   Wallet,
 } from "lucide-react";
 
@@ -82,6 +85,7 @@ const REGISTRY = {
   mail: Mail,
   megaphone: Megaphone,
   "message-circle": MessageCircle,
+  music: Music,
   "party-popper": PartyPopper,
   pill: Pill,
   "refresh-cw": RefreshCw,
@@ -94,6 +98,8 @@ const REGISTRY = {
   target: Target,
   "trending-up": TrendingUp,
   users: Users,
+  "volume-2": Volume2,
+  "volume-x": VolumeX,
   wallet: Wallet,
 };
 
