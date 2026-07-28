@@ -885,3 +885,77 @@ flex-shrink: 0; }
   .flow-arrow { justify-content: center; }
   .flow-arrow svg { transform: rotate(90deg); }
 }
+
+/* ============================================================ JINGLE */
+/* Floating audio toggle. Sits above the page but below the policy
+   overlay (z-index 100) so a modal always wins. */
+.jingle-toggle {
+  position: fixed;
+  right: 20px; bottom: 20px; z-index: 60;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 10px 16px 10px 12px;
+  font-family: inherit; font-size: 13px; font-weight: 600;
+  color: var(--fg-2);
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: all var(--dur-base) var(--ease-out);
+}
+.jingle-toggle:hover {
+  color: var(--fg-1);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+.jingle-toggle:focus-visible {
+  outline: 2px solid var(--brand-purple-500);
+  outline-offset: 3px;
+}
+.jingle-toggle.is-playing {
+  color: var(--fg-on-brand);
+  background: var(--brand-purple-500);
+  border-color: var(--brand-purple-400);
+  box-shadow: var(--shadow-glow-purple);
+}
+
+.jingle-icon { display: inline-flex; }
+.jingle-icon svg { width: 18px; height: 18px; }
+
+/* Equalizer bars — only meaningful while the jingle is actually running */
+.jingle-bars { display: none; align-items: flex-end; gap: 3px; height: 14px; }
+.jingle-toggle.is-playing .jingle-bars { display: inline-flex; }
+.jingle-bars i {
+  display: block; width: 3px; border-radius: 2px;
+  background: var(--brand-gold-300);
+  animation: jingleBar 900ms var(--ease-in-out) infinite;
+}
+.jingle-bars i:nth-child(1) { height: 6px;  animation-delay: 0ms; }
+.jingle-bars i:nth-child(2) { height: 14px; animation-delay: 160ms; }
+.jingle-bars i:nth-child(3) { height: 9px;  animation-delay: 320ms; }
+@keyframes jingleBar {
+  0%, 100% { transform: scaleY(.45); }
+  50%      { transform: scaleY(1); }
+}
+
+/* Autoplay was refused — pulse to invite the click that unlocks audio */
+.jingle-toggle.is-waiting {
+  animation: jingleNudge 2.4s var(--ease-in-out) infinite;
+}
+@keyframes jingleNudge {
+  0%, 100% { box-shadow: var(--shadow-md); }
+  50%      { box-shadow: var(--shadow-glow-gold); }
+}
+
+@media (max-width: 720px) {
+  .jingle-toggle { right: 14px; bottom: 14px; padding: 12px; }
+  .jingle-label { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jingle-toggle,
+  .jingle-toggle:hover { transition: none; transform: none; }
+  .jingle-bars i,
+  .jingle-toggle.is-waiting { animation: none; }
+}
