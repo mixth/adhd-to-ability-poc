@@ -1,11 +1,12 @@
+// The five main tabs, in menu and pagination order. `short` is the label
+// shown under the icon on phones. `featured` marks the gold policy-brief
+// tab, which opens the brief's own page (outside the main layout).
 export const sections = [
-  { id: 1, title: "ชื่อทีม", icon: "users", slug: "" },
-  { id: 2, title: "ชื่อโครงการ", icon: "clipboard-list", slug: "project-name" },
-  { id: 3, title: "ความเป็นมาและเหตุผล", icon: "book-open", slug: "background" },
-  { id: 4, title: "กรอบแนวคิด", icon: "git-branch", slug: "framework" },
-  { id: 5, title: "วัตถุประสงค์", icon: "check-circle-2", slug: "objectives" },
-  { id: 6, title: "เป้าประสงค์ระยะยาว", icon: "target", slug: "long-term-goals" },
-  { id: 7, title: "ติดต่อเรา", icon: "message-circle", slug: "contact" },
+  { id: 1, title: "เกี่ยวกับเรา", short: "เกี่ยวกับเรา", icon: "users", slug: "" },
+  { id: 2, title: "ความเป็นมาและเหตุผล", short: "ความเป็นมา", icon: "book-open", slug: "background" },
+  { id: 3, title: "ข้อเสนอนโยบาย", short: "ข้อเสนอฯ", icon: "file-text", slug: "policy-brief", featured: true },
+  { id: 4, title: "เป้าประสงค์ระยะยาว", short: "เป้าประสงค์", icon: "target", slug: "long-term-goals" },
+  { id: 5, title: "ติดต่อเรา", short: "ติดต่อเรา", icon: "message-circle", slug: "contact" },
 ];
 
 // Build an absolute route path from a section slug ("" → "/").
